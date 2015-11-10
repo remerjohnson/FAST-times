@@ -23,8 +23,11 @@ f1 = open('geographic.csv', 'rb')
 subjects = []
 for line in f1:
 	subj = re.findall("\t(.+)\t", line, flags=re.UNICODE)
+	# need a really good re.sub here to catch spaces and --
 	subjects.append(subj)
 	continue
+
+
 
 print json.dumps(subjects, ensure_ascii=False)
 

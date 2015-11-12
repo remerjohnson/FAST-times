@@ -16,10 +16,10 @@ fast_uri_base = 'http://id.worldcat.org/fast/{0}'
 # Open the file. Python library Requests recommends opening as read and binary, 'rb' 
 f1 = open('geographic.csv', 'rb')
 
-# Set up to write to a csv file
+# Set up to write to a csv file, write coulmn headers
 # f2 = 
 
-# Create subjects list we can append all the subjects from column B to:
+# Create empty subjects list we can append all the subjects from column B to:
 subjects = []
 for line in f1:
 	# FAST API can't handle spaces or hyphens. 
@@ -33,7 +33,19 @@ for line in f1:
 	subjects.append(subj)
 	continue
 
+# Get the list without quotes?
 
+# Uncomment the following statement if you want to return the full subject list
+# in your terminal output:
+# print json.dumps(subjects, ensure_ascii=False)
+results = []
 
-print json.dumps(subjects, ensure_ascii=False)
+for i in subjects:
+	url = api_base_url + '?&query=' + str(i).encode('UTF-8') 
+	url += '&queryIndex=suggestall&queryReturn=suggestall%2Cidroot%2Cauth%2Ctag%2Craw&suggest=autoSubject&rows=13&wt=json'
+	r = requests.get(url)
+	results.append(r.text)
+	continue
 
+print r.headers
+print results

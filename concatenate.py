@@ -8,7 +8,7 @@ def concatenate(indir='/home/zelgius/Github/FAST_times/',outfile='/home/zelgius/
 	os.chdir(indir)
 	fileList=glob.glob('*.csv')
 	dfList=[]
-	colnames=['ARK','JSON_response','DAMS_Label']
+	colnames=['ARK', 'Clean_Labels', 'DAMS_Label']
 	for filename in fileList:
 		print filename
 		df=pandas.read_csv(filename, header=None)

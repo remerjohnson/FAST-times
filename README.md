@@ -12,3 +12,6 @@ concatenate.py is a script that then concatenates the three .csv files using `pa
   
 This spreadsheet can then be imported to OpenRefine for data munging. In this case, it's used to parse the JSON responses from the API, create rows based on the number of responses, parse the IDs into valid URLs, and display the relevant MARC tag.  
 
+# Less FAST Times
+
+In not-so-fast times, we need a different solution. less_FAST_times.py strips out the API calling of the original script, and instead relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) 

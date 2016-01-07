@@ -14,7 +14,7 @@ This spreadsheet can then be imported to OpenRefine for data munging. In this ca
 
 # Less FAST Times
 
-In not-so-fast times, we need a different solution. `less_FAST_times.py` strips out the API calling of the original script, and instead relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) (credit to [Christina Harlow](https://github.com/cmh2166).  
+In not-so-fast times, we need a different solution. `less_FAST_times.py` strips out the API calling of the original script, and instead relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) (credit to [Christina Harlow](https://github.com/cmh2166)).  
   
-The OpenRefine script uses OpenRefine's own reconcincilation functionality. My slight tweak to the scipt is that instead of a ranked number being returned reflecting the match accuracy of the term, it instead returns the MARC tag number that the subject/genre falls under.  
+The OpenRefine script uses OpenRefine's own reconcincilation functionality. My slight tweak to the scipt is that instead of a ranked number being returned reflecting the match accuracy of the term, it instead returns the MARC tag number that the subject/genre falls under. You can see my tweak/fork [here](https://github.com/remerjohnson/fast-reconcile) 
 

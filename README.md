@@ -8,7 +8,7 @@ It also formats the subjects in order to effectively query them against the [FAS
 
 The FAST API returns suggestions, which contain the authorized heading, its ID, and the MARC tag number. The script puts that into a third .csv file.  
 
-`concatenate.py` is a script that then concatenates the three .csv files (using the Python library `pandas`) into one master spreadsheet.  
+`concatenate.py` is a script that then concatenates the three .csv files (using the Python library [pandas](http://pandas.pydata.org/pandas-docs/stable/)) into one master spreadsheet.  
 
 This spreadsheet can then be imported to OpenRefine for data munging. In this case, it's used to parse the JSON responses from the API, create rows based on the number of responses, parse the IDs into valid URLs, and display the relevant MARC tag.  
 

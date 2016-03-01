@@ -4,6 +4,7 @@ import os
 import glob
 import pandas
 
+# Define a function using glob to take all .csv files in a directory and concatenate to one .csv
 def concatenate(indir='/home/zelgius/Github/FAST_times/',outfile='/home/zelgius/Documents/concatenated.csv'):
 	os.chdir(indir)
 	fileList=glob.glob('*.csv')

@@ -9,14 +9,14 @@ import csv
 import re
 from itertools import chain
 import codecs
-import unicodedata 
+import unicodedata
 
 # some config
 api_base_url = "http://fast.oclc.org/searchfast/fastsuggest"
 #For constructing links to FAST.
 fast_uri_base = "http://id.worldcat.org/fast/{0}"
 
-# Open the file we're provided. The Python library 'requests' recommends opening as read and binary, 'rb' 
+# Open the file we're provided. The Python library 'requests' recommends opening as read and binary, 'rb'
 f1 = open('topic.tsv', 'r')
 
 # Set up to write to .csv files
@@ -33,7 +33,7 @@ dams_subjects = []
 subjects = []
 # Set up loop to isolate ARKs and subjects from each line in the spreadsheet, add to lists:
 for line in f1:
-	# FAST API can't handle multiple spaces OR hyphens. 
+	# FAST API can't handle multiple spaces OR hyphens.
 	# Need a lot of re.sub here to catch extra spaces and hyphen combinations
 	dams_subj = re.findall("\t(.+)\t", line, flags=re.UNICODE)
 	dams_subjects.append(dams_subj)
@@ -64,9 +64,11 @@ for a in final_arks:
 for s in final_dams:
 	f3.writerow([s])
 
+# Write out the 'cleaned up' DAMS subject labels to a single column csv:
 for i in final_subjects:
 	f4.writerow([i])
 
+# Print final lists to the terminal to see any obvious errors:
 print (final_arks)
 print (final_dams)
 print (final_subjects)

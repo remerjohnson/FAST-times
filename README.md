@@ -16,6 +16,10 @@ This spreadsheet can then be imported to OpenRefine for data munging. In this ca
 
 In not-so-fast times, we need a different solution. `less_FAST_times.py` strips out the API calling of the original script, and instead relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) (credit to [Christina Harlow](https://github.com/cmh2166)).  
 
+The rationale for this script using OpenRefine is that for thousands of these subject, we need automatch functionality, since we do not have the time or resources to make that many manual matches. This process still involves some manual matching, but only on 5%-10% of the terms, instead of ~90%.  
+
 # Reference to other scripts
 
-Once in OpenRefine, a separate script uses OpenRefine's own reconciliation functionality to generate a reconciliation service. My slight tweak to the original script is that instead of a ranked number being returned reflecting the match accuracy of the term, it instead returns the MARC tag number that the subject/genre falls under. You can see my tweak/fork [here](https://github.com/remerjohnson/fast-reconcile).   
+Once in OpenRefine, a separate script uses OpenRefine's own reconciliation functionality to generate a reconciliation service. My slight tweak to the original script is that instead of a ranked number being returned reflecting the match accuracy of the term, it instead returns the MARC tag number that the subject/genre falls under. We use the MARC tag because all of these topics are 'complex', meaning they can be a combination of different types (geographic, topical, etc.). Decomposing these subjects, but then acquiring the MARC tag allows us to know what type of subject the matches are (which we can then perhaps run against different vocabularies like GeoNames). You can see my tweak/fork [here](https://github.com/remerjohnson/fast-reconcile).   
+
+TODO: Once the workflow is confirmed, merge the contents of `workflow.md` into this document.  

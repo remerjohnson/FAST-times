@@ -3,7 +3,6 @@
 import json
 from pprint import pprint
 from operator import itemgetter
-import urllib
 import requests
 import csv
 import re

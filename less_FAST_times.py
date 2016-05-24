@@ -43,7 +43,7 @@ for line in f1:
 	line = re.sub(r" -- ", r"--", line, flags=re.UNICODE)
 	line = re.sub(r" --", r"--", line, flags=re.UNICODE)
 	line = re.sub(r"-- ", r"--", line, flags=re.UNICODE)
-	line = re.sub(r"- --", r"--", line, flags=re.UNICODE)
+	line = re.sub(r"---", r"--", line, flags=re.UNICODE)
 	line = re.sub(r"  ", r" ", line, flags=re.UNICODE)
 	ark = re.findall("^(http.+?)\t", line, flags=re.UNICODE)
 	arks.append(ark)

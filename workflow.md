@@ -1,6 +1,6 @@
-+ Get the `Topic.txt` list of topics from JIRA
-+ Convert the Topic to UTF-8: ```iconv -f ISO-8859-15 -t UTF-8 Topic.txt > topic.txt```
-+ Convert to csv: `topic.txt > topic.csv`
++ Get e.g. `Topic.txt` list of topics from JIRA
++ Convert to UTF-8: ```iconv -f ISO-8859-15 -t UTF-8 Topic.txt > topic.txt```
++ Convert to csv: `cat topic.txt > topic.csv`
 + Cut columns we don't need via `csvkit`'s `csvcut`:  ```csvcut -t -c ark,topic topic.csv > new_topic.csv```
 + Convert to tsv: `cat new_topic.csv | sed 's/,/\t/g' > topic.tsv`
 + Run script that creates all the csv files: `python less_FAST_times.py`
@@ -10,4 +10,5 @@
 + Run reconciliation service for FAST by `cd` into the `fast-reconcile` repo and run: `python reconcile.py`
 + Select options on clean_labels column, then select reconcile: follow prompts
 + Review matches. When satisfied, extract label, URI, marc tag into new columns
-+ Export to Excel
++ Export to Excel for review and splitting off of unmatched terms
++ Repeat reconciliation for unmatched terms until all have been attempted

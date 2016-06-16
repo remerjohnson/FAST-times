@@ -2,7 +2,7 @@
 + Convert to UTF-8: ```iconv -f ISO-8859-15 -t UTF-8 Topic.txt > topic.txt```
 + Convert to csv: `cat topic.txt > topic.csv`
 + Cut columns we don't need via `csvkit`'s `csvcut`:  ```csvcut -t -c ark,topic topic.csv > new_topic.csv```
-+ Convert to tsv: `cat new_topic.csv | sed 's/,/\t/g' > topic.tsv`
++ Convert to tsv: `cat new_topic.csv | sed 's/,/\t/g' > topic.tsv` or `cat new_topic.csv > topic.tsv`
 + Run script that creates all the csv files: `python less_FAST_times.py`
 + Run the concatenate script: `python concatenate.py`
 + Open result `concatenated.csv` in OpenRefine

@@ -2,7 +2,7 @@
 
 ### Description
 
-`FAST_times.py` is a script that takes existing LCSH subjects from the DAMS along with their ID/URI (in this case, an ARK) and spits those into .csv files.  
+`FAST_times.py` is a script that takes existing LCSH subjects from the DAMS along with their ID/URI (in this case, an ARK) and spits those into tab delimited .csv files.  
 
 It also formats the subjects in order to effectively query them against the [FAST API](https://experimental.worldcat.org/fast/).  
 
@@ -10,11 +10,11 @@ The FAST API returns suggestions, which contain the authorized heading, its ID, 
 
 `concatenate.py` is a script that then concatenates the three .csv files (using the Python library [pandas](http://pandas.pydata.org/pandas-docs/stable/)) into one master spreadsheet.  
 
-This spreadsheet can then be imported to OpenRefine for data munging. In this case, it's used to parse the JSON responses from the API, create rows based on the number of responses, parse the IDs into valid URLs, and display the relevant MARC tag.  
+This spreadsheet can then be imported to OpenRefine for data wrangling. In this case, it's used to parse the JSON responses from the API, create rows based on the number of responses, parse the IDs into valid URLs, and display the relevant MARC tag.  
 
-# Less FAST Times
+# Not-so-FAST Times
 
-In not-so-fast times, we need a different solution. `less_FAST_times.py` strips out the API calling of the original script, and instead relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) (credit to [Christina Harlow](https://github.com/cmh2166)).  
+In not-so-fast times, we need a different solution. `less_FAST_times.py` strips out the API calling of the original script, and instead handles just the subject string formatting and then relies on an existing [OpenRefine reconciliation script](https://github.com/cmh2166/fast-reconcile) (credit to [Christina Harlow](https://github.com/cmh2166)).  
 
 The rationale for this script using OpenRefine is that for thousands of these subject, we need automatch functionality, since we do not have the time or resources to make that many manual matches. This process still involves some manual matching, but only on 5%-10% of the terms, instead of ~90%.  
 

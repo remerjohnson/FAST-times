@@ -1,4 +1,5 @@
 + Get e.g. `Topic.txt` list of topics from JIRA
++ Get a report on the encoding `file -bi Topic.txt`
 + Convert to UTF-8: ```iconv -f ISO-8859-15 -t UTF-8 Topic.txt > topic.txt```
 + Convert to csv: `cat topic.txt > topic.csv`
 + Cut columns we don't need via `csvkit`'s `csvcut`:  ```csvcut -t -c ark,topic topic.csv > new_topic.csv```

@@ -1,3 +1,4 @@
+# General Workflow
 + Get e.g. `Topic.txt` (a list of all Subject:topics) from JIRA
 + Get a report on the encoding `file -bi Topic.txt`
 + Convert to UTF-8: ```iconv -f ISO-8859-15 -t UTF-8 Topic.txt > topic.txt```
@@ -16,3 +17,14 @@
 + Once review of the Excel has occurred and sent back for more recon, get back into csv:
   + `in2csv topic.xlsx > topic.csv # Requires csvkit`
 + Repeat earlier steps for recon as necessary   
+
+# From VIAF to Wikidata / Wikipedia using OpenRefine
+Some VIAF authorities have Wikidata URIs in them. Once we have those VIAF URIs, we can use Refine's "Create a column by fetching URLs" on this column.  
+
+The data is in a JSON version of the authorities, which is appended to each URI as `/justlinks.json`  
+
+Therefore, the expression, using GREL, will be `value + '/justlinks.json'`.  
+
+We get back a bunch of JSON in this column, which we will need to parse. To parse out the Wikidata IDs, the GREL will be `grel:	value.parseJson()["WKP"]`    
+
+TODO: regular expression to parse out English Wikipedia pages

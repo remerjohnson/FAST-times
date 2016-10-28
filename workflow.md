@@ -19,6 +19,8 @@
 + Repeat earlier steps for recon as necessary   
 
 # From VIAF to Wikidata / Wikipedia using OpenRefine
+[Help from the Refine GitHub Wiki](https://github.com/OpenRefine/OpenRefine/wiki/Fetching-URLs-From-Web-Services)
+
 Some VIAF authorities have Wikidata URIs in them. Once we have those VIAF URIs, we can use Refine's "Create a column by fetching URLs" on this column.  
 
 The data is in a JSON version of the authorities, which is appended to each URI as `/justlinks.json`  

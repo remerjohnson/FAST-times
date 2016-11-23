@@ -29,4 +29,12 @@ Therefore, the expression, using GREL, will be `value + '/justlinks.json'`.
 
 We get back a bunch of JSON in this column, which we will need to parse. To parse out the Wikidata IDs, the GREL will be `grel:	value.parseJson()["WKP"]`    
 
-TODO: regular expression to parse out English Wikipedia pages
+## Extracting Wikipedia links from VIAF data
+
+Using jython in OpenRefine's "Create column based on this column" on the VIAF JSON:
+```
+import re
+g = re.search('.*(https:\/\/en\.wikipedia\.org\/wiki\/\w+).+', value)
+return g.group(1)
+```
+
